@@ -1,0 +1,21 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+   double d;
+   float x1,y1,x2,y2;
+   cout<<"Ingresar x1:";
+   cin>>x1;
+   cout<<"Ingresar y1";
+   cin>>y1;
+   cout<<"Ingresar x2";
+   cin>>x2;
+   cout<<"Ingresar y2";
+   cin>>y2;
+   d=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
+   cout<<"La distancia de los 2 puntos es:"<<d;
+   
+    return 0;
+}
