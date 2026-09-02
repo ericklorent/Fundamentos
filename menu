@@ -33,6 +33,7 @@ int main()
          case 0:
              cout<<"Salir"<<endl;
              return 0;
+             break;
          default:
              cout<<"Error"<<endl;
              return 0;
