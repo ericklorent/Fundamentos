@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+ 
+    float b = 3, cb = 5, p = 2, s = 2.5;
+    int cant_b = 0, cant_cb = 0, cant_p = 0, cant_s = 0, opcion, cantidad_ingresada;
+    float totalp = 0;
+ 
+
+    do {
+        cout << "=================================" << endl;
+        cout << "            MENU                 " << endl;
+        cout << "=================================" << endl;
+        cout << "1. Hamburguesa (3Bs)" << endl;
+        cout << "2. Hamburguesa con queso (5Bs)" << endl;
+        cout << "3. Papas fritas (2Bs)" << endl;
+        cout << "4. Soda (2.5Bs)" << endl;
+        cout << "0. Finalizar pedido y pagar" << endl;
+        cout << "---------------------------------" << endl;
+        cout << "Total acumulado hasta ahora: " << totalp << " Bs." << endl;
+        cout << "=================================" << endl;
+        cout << "Escoja una opcion: ";
+        cin >> opcion;
+       
+        switch (opcion)
+        {
+            case 1:
+                cout << "Introduzca la cantidad de Hamburguesa: ";
+                cin >> cantidad_ingresada;
+                if (cantidad_ingresada > 0) {
+                    cant_b += cantidad_ingresada;      
+                    totalp += cantidad_ingresada * b;    
+                }
+                break;
+            case 2:
+                cout << "Introduzca la cantidad de Hamburguesa con queso: ";
+                cin >> cantidad_ingresada;
+                if (cantidad_ingresada > 0) {
+                    cant_cb += cantidad_ingresada;
+                    totalp += cantidad_ingresada * cb;
+                }
+                break;
+            case 3:
+                cout << "Introduzca la cantidad de papas fritas: ";
+                cin >> cantidad_ingresada;
+                if (cantidad_ingresada > 0) {
+                    cant_p += cantidad_ingresada;
+                    totalp += cantidad_ingresada * p;
+                }
+                break;
+            case 4:
+                cout << "Introduzca la cantidad de soda: ";
+                cin >> cantidad_ingresada;
+                if (cantidad_ingresada > 0) {
+                    cant_s += cantidad_ingresada;
+                    totalp += cantidad_ingresada * s;
+                }
+                break;
+            case 0:
+                cout << "Procesando pedido..." << endl;
+                break;
+               
+            default:
+                cout << "Opcion invalida. Intente de nuevo." << endl;
+                break;
+        }
+    } while (opcion != 0);
+
+   
+    cout << "=================================" << endl;
+    cout << "       DETALLE DEL PEDIDO        " << endl;
+    cout << "=================================" << endl;
+    if (cant_b > 0)  cout << "- Hamburguesas: " << cant_b << " unidad(es) -> " << cant_b * b << " Bs." << endl;
+    if (cant_cb > 0) cout << "- Hamburguesas c/queso: " << cant_cb << " unidad(es) -> " << cant_cb * cb << " Bs." << endl;
+    if (cant_p > 0)  cout << "- Papas fritas: " << cant_p << " unidad(es) -> " << cant_p * p << " Bs." << endl;
+    if (cant_s > 0)  cout << "- Sodas: " << cant_s << " unidad(es) -> " << cant_s * s << " Bs." << endl;
+   
+    cout << "---------------------------------" << endl;
+    cout << "TOTAL FINAL A PAGAR: " << totalp << " Bs." << endl;
+    cout << "=================================" << endl;
+
+    return 0;
+}
