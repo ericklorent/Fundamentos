@@ -1,0 +1,27 @@
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int cont=0;
+    
+    do {
+        cont = cont + 1; // cont++
+        cout<<","<<cont;
+    }while (cont!=10);
+    cout<<","<<endl;
+    
+    cont=0;
+    while(cont<10){
+        cont=cont + 1;
+        cout<<","<<cont;
+    }
+    cout<<endl;
+    // ejemplo For
+     
+     for(cont=1;cont<=10;cont++)
+     cout<<","<<cont;
+     
+    return 0;
+    
+}
