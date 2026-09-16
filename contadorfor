@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int N, suma=0;
+    cout<<"Ingrese los numeros que quiere"<<endl;
+    cin>> N;
+     
+    for(int cont=1;cont<=N;cont++){
+       cout<<cont<<endl;
+       suma=suma+(cont*cont);
+     
+    } 
+     
+    cout<<"Suma es:"<<suma<<endl;
+    return 0;
+    
+}
