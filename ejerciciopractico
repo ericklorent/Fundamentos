@@ -1,0 +1,30 @@
+// Autor: Erick Lorent
+// Ejercicio 5 del practico de digitos
+
+
+#include <iostream>
+using namespace std;
+int main()
+
+{
+
+    int n,digito,complemento, complemento1 = 0;
+    int multiplicador = 1;
+
+    cout << "Ingresa un numero entero: ";
+    cin >> n;
+    while (n > 0)
+
+    {
+        digito = n % 10;        
+        complemento = 9 - digito; 
+        complemento1 = complemento1 + (complemento * multiplicador); 
+        multiplicador = multiplicador * 10; 
+        n = n / 10;                         
+
+    }
+
+    cout << "El complemento a 9 es: " << complemento1 << endl;
+    return 0;
+
+}
