@@ -1,0 +1,98 @@
+#include <iostream>
+#include <stdlib.h>
+#include <math.h>
+
+using namespace std;
+
+// Prototipos
+int menordedosnumeros(int x, int y);
+int signo(float c);
+int elevar(int n, int m);
+
+int main()
+{
+    int x, y, n, m;
+    float c;
+    int opcion;
+
+    // Menu
+    do {
+        cout << "\t\t Menu \n";
+        cout << "\t\t ==== \n";
+        cout << "1. El menor \n";
+        cout << "2. El Signo \n";
+        cout << "3. Elevacion \n";
+        cout << "0. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            cout << "Ingrese el primer numero: ";
+            cin >> x;
+            cout << "Ingrese el segundo numero: ";
+            cin >> y;
+            cout << "El numero menor es: " << menordedosnumeros(x, y) << endl;
+            break;
+
+        case 2:
+            cout << "Ingrese el numero: ";
+            cin >> c;
+            cout << "El signo del numero es: " << signo(c) << endl;
+            break;
+
+        case 3:
+            cout << "Ingrese el numero entero: ";
+            cin >> n;
+            cout << "Ingrese la potencia: ";
+            cin >> m;
+            cout << "El resultado es: " << elevar(n, m) << endl;
+            break;
+
+        case 0:
+            cout << "Saliendo del Menu" << endl;
+            break;
+
+        default:
+            cout << "ERROR de opcion" << endl;
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+// Declaración y desarrollo de funciones
+int menordedosnumeros(int x, int y) {
+    if (x > y) {
+        return y;
+    }
+    else {
+        return x;
+    }
+}
+
+int signo(float c) {
+    if (c == 0) {
+        return 0;
+    }
+    else if (c < 0) {
+        return -1;
+    }
+    else {
+        return 1;
+    }
+}
+
+int elevar(int n, int m) {
+    int acum = 1;
+    for (int i = 1; i <= m; i++) {
+        acum = acum * n;
+    }
+    return acum;
+}
