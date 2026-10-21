@@ -1,0 +1,109 @@
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void cargar(int a[], int tam);
+void mostrar(int a[], int tam);
+void burbuja(int a[], int tam);
+void mostrarPromedios(int a[], int tam);
+
+int main()
+{
+    int opcion, n = 0, v[MAX];
+    do {
+        cout << "\n----- MENU -----" << endl;
+        cout << "1.- Opcion cargar" << endl;
+        cout << "2.- Opcion mostrar" << endl;
+        cout << "3.- Opcion burbuja" << endl;
+        cout << "4.- Opcion mostrar promedios (de 3 en 3)" << endl;
+        cout << "0.- Salir" << endl;
+        cout << "Elija una opcion: ";
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            do {
+                cout << "Cuantos elementos quiere (max " << MAX << "): ";
+                cin >> n;
+            } while (n > MAX || n <= 0);
+            cargar(v, n);
+            break;
+        case 2:
+            if (n == 0) {
+                cout << "Primero debe cargar el vector." << endl;
+            }
+            else {
+                mostrar(v, n);
+            }
+            break;
+        case 3:
+            if (n == 0) {
+                cout << "Primero debe cargar el vector." << endl;
+            }
+            else {
+                burbuja(v, n);
+                cout << "Vector ordenado con metodo burbuja." << endl;
+            }
+            break;
+        case 4:
+            if (n == 0) {
+                cout << "Primero debe cargar el vector." << endl;
+            }
+            else {
+                mostrarPromedios(v, n);
+            }
+            break;
+        case 0:
+            cout << "Saliendo..." << endl;
+            break;
+        default:
+            cout << "Opcion invalida" << endl;
+            break;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+void cargar(int a[], int tam) {
+    for (int i = 0; i < tam; i++) {
+        cout << "v[" << i << "]= ";
+        cin >> a[i];
+    }
+}
+
+void mostrar(int a[], int tam) {
+    cout << "Elementos del vector:" << endl;
+    for (int i = 0; i < tam; i++) {
+        cout << "v[" << i << "] = " << a[i] << endl;
+    }
+}
+
+void burbuja(int a[], int tam) {
+    int aux;
+    for (int i = 0; i < tam - 1; i++) {
+        for (int j = i + 1; j < tam; j++) {
+            if (a[i] > a[j]) {
+                aux = a[j];
+                a[j] = a[i];
+                a[i] = aux;
+            }
+        }
+    }
+}
+
+void mostrarPromedios(int a[], int tam) {
+    if (tam < 3) {
+        cout << "El vector debe tener al menos 3 elementos para calcular promedios." << endl;
+        return;
+    }
+
+    for (int i = 0; i <= tam - 3; i++) {
+        
+        double promedio = (double)(a[i] + a[i + 1] + a[i + 2]) / 3.0;
+        cout << "P" << i + 1 << " = " << promedio << endl;
+    }
+}
