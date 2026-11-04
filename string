@@ -1,0 +1,119 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int longitud, cont, pos;
+    char aux;
+
+    string var1, var2, nombre; 
+
+    cout << endl << "Ejemplo de uso de getline para ingresar cadena de caracteres";
+    cout << endl << "Ingrese un nombre: ";
+    getline(cin, nombre);
+
+    cout << endl << "Ejemplo de uso de length para determinar la longitud de un string";
+    longitud = nombre.length();
+    cout << endl << "El string tiene: " << longitud << " caracteres.";
+
+    cout << endl << "\nEjemplo de uso de compare para determinar si dos cadenas son iguales";
+    cout << endl << "Redigite el nombre: ";
+    getline(cin, var2);
+
+    if (nombre.compare(var2) == 0)
+        cout << endl << "Los datos coinciden" << endl;
+    else
+        cout << nombre << " es diferente que " << var2 << " :1" << endl;
+
+    
+    cont = 0;
+    cout << endl << "Ejemplo de uso de elementos individuales: ";
+    cout << endl << "Contar vocales" << endl;
+
+    for (int i = 0; i < longitud; i++) {
+        char c = nombre[i];
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            cont++;
+    }
+    cout << "Numero de vocales: " << cont << endl;
+
+    cout << endl << "Ejemplo de uso de elementos individuales con at: ";
+    cont = 0;
+    for (int i = 0; i < longitud; i++) {
+        char c = nombre.at(i);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            cont++;
+    }
+    cout << "Numero de vocales: " << cont << endl;
+
+ 
+    cout << endl << "Ejemplo de uso de substr";
+    cout << endl << "Ingrese desde donde desea extraer el substring (0 a " << longitud - 1 << "): ";
+    cin >> pos;
+
+    
+    if (pos >= 0 && pos <= longitud) {
+        cout << "Subcadena: " << nombre.substr(pos, longitud - pos) << endl;
+    }
+    else {
+        cout << "Posicion no valida." << endl;
+    }
+
+    
+    cin.ignore(10000, '\n');
+
+   
+    cout << endl << "Intercambia variables" << endl;
+    nombre.swap(var2);
+    cout << "Nuevo nombre: " << nombre << endl;
+    cout << "Nueva var2: " << var2 << endl;
+
+    
+    cout << "Posicion del primer espacio en var2 (si existe): " << var2.find(' ') << endl;
+    longitud = var2.length();
+    for (int i = 0; i < longitud; i++) {
+        if (var2.at(i) == ' ')
+            cout << endl << "Existe un espacio en la posicion: " << i;
+    }
+    cout << endl;
+
+  
+    cout << endl << "Ingrese una frase para invertir y verificar palindromo: ";
+    getline(cin, nombre);
+    var2 = nombre;
+    longitud = nombre.length();
+
+    string invertida = nombre; 
+    for (int i = 0; i < longitud / 2; i++) {
+        aux = invertida[i];
+        invertida[i] = invertida[longitud - 1 - i];
+        invertida[longitud - 1 - i] = aux;
+    }
+    cout << "La cadena invertida es: " << invertida << endl;
+
+    if (var2.compare(invertida) == 0)
+        cout << "Es un palindromo" << endl;
+    else
+        cout << "No es un palindromo" << endl;
+
+    
+    string sin_vocales = "";
+    for (int i = 0; i < longitud; i++) {
+        char c = nombre[i];
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
+            c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U')
+        {
+            sin_vocales += c; 
+        }
+    }
+    cout << "Sin vocales es: " << sin_vocales << endl;
+
+    cout << "\nPresione Enter para salir...";
+    cin.get(); 
+
+    return 0;
+}
